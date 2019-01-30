@@ -42,6 +42,12 @@ pos.lbml<-function (x=NA,y=NA, data=cabinets) {
   pos
 }
 
+pos.kf<-function (x=NA,y=NA, data=cabinets) {
+  pos = (round(rowsum.allna(data[,x, drop=F])*data[,'total']/100) - round(rowsum.allna(data[,y, drop=F])*data[,'total']/100))/
+    (round(rowsum.allna(data[,x, drop=F])*data[,'total']/100) + round(rowsum.allna(data[,y, drop=F])*data[,'total']/100))
+  pos
+}
+
 pos.lbml.sal<-function (x=NA, ..., data=cabinets) {
   pos = log((round(rowsum.allna(data[, x, drop=F])*data[, 'total']/100) + 1)/ data[, 'total'])
   pos
